@@ -14,7 +14,7 @@ from sklearn.manifold import TSNE
 
 def get_image(path, w, h):
 	img = Image.open(path)
-	if img.mode == 'L':
+	if img.mode == 'L' or img.mode == 'RGBA':
 		img = img.convert('RGB')
 	img = img.resize((w, h), Image.ANTIALIAS)
 	im2 = np.array(img.getdata(), np.uint8)
