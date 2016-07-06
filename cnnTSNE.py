@@ -12,7 +12,7 @@ from keras.optimizers import SGD
 from sklearn.manifold import TSNE
 
 
-def get_image_PIL(path, w, h):
+def get_image(path, w, h):
 	img = Image.open(path)
 	if img.mode == 'L':
 		img = img.convert('RGB')

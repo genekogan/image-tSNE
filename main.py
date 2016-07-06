@@ -5,7 +5,7 @@ img_width = 224
 img_height = 224
 vgg_path = '/Users/gene/Learn/keras-rtst/vgg16_weights.h5'
 images_path = '/Users/gene/Code/of_v0.9.0_osx_release/addons/ofxTSNE_2/example-images/bin/data/animals'
-tsne_path = '/Users/Gene/Desktop/tempco.txt'
+tsne_path = 'cnn_tsne_vis/data/tsne_points.txt'
 
 # load model
 model = VGG_16()
@@ -24,7 +24,7 @@ activations = []
 for idx,image_path in enumerate(images):
 	print "getting activations for %s %d/%d" % (image_path,idx,len(images))
 	file_path = join(images_path,image_path)
-	image = get_image_PIL(file_path, img_width, img_height)
+	image = get_image(file_path, img_width, img_height)
 	activations.append(model.predict(image)[0])
 
 
@@ -43,4 +43,5 @@ for idx,image_path in enumerate(images):
 	file_path = join(images_path,image_path)
 	line = "%s, %f, %f" % (file_path, x[idx], y[idx])
 	f.write('%s\n'%line)
+
 f.close()

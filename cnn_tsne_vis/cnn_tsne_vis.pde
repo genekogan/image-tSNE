@@ -7,7 +7,7 @@ void setup() {
   images = new ArrayList<PImage>();
   positions = new ArrayList<PVector>();
   
-  String[] lines = loadStrings("/Users/Gene/Desktop/tempco.txt");
+  String[] lines = loadStrings("tsne_points.txt");
   for (int i=0; i<lines.length; i++) {
     if (i % 20 == 0) {
       println("opening image "+i+" of "+lines.length);
