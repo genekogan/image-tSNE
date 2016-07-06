@@ -8,10 +8,14 @@ void setup() {
   positions = new ArrayList<PVector>();
   
   String[] lines = loadStrings("/Users/Gene/Desktop/tempco.txt");
-  for (String l : lines) {
+  for (int i=0; i<lines.length; i++) {
+    if (i % 20 == 0) {
+      println("opening image "+i+" of "+lines.length);
+    }
+    String l = lines[i];
     String[] l2 = split(l,",");
     PImage img = loadImage(l2[0]);
-    img.resize(50, 50);
+    img.resize(100, 100);
     images.add(img);
     positions.add(new PVector(float(l2[1]), float(l2[2])));
   }
